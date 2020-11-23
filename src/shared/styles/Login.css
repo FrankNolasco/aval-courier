@@ -1,0 +1,42 @@
+.Login-template {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+}
+
+.Bienvenida-login {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    justify-content: center;
+}
+.Bienvenida-login > span {
+    font-size: 20px;
+}
+.formulario-login {
+    padding: 20px;
+    width: 60%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.message-closable {
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+.close-message {
+    background-color: var(--secondary);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: fixed;
+    right: 20px;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+}

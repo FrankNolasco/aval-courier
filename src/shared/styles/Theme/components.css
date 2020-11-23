@@ -1,0 +1,29 @@
+.form-title {
+    font-size: 20px;
+    font-weight: bold;
+}
+.form-inputs{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.form-input-group {
+    width: calc(50% - 10px);
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.select-options { 
+    width: 100%;
+}
+.form-input-group > label {
+    width: 40%;
+    text-align: end;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.btn-siguiente { 
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
