@@ -18,7 +18,7 @@
 }
 .form-input-group > label {
     width: 40%;
-    text-align: end;
+    text-align: start;
     text-transform: capitalize;
     font-weight: 600;
 }

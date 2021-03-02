@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import Logo from '../shared/components/Template/Logo'
 import { Button, Input } from 'antd';
-import '../shared/styles/Login.css'
 import { useUsuario } from '../App/hooks/global/UsuarioContext';
 const inputArray = ['username','password']
 function Login() {
@@ -22,7 +21,7 @@ function Login() {
                 <span>Bienvenido a </span><Logo/>
             </div>
             <form className="formulario-login" onSubmit = {handleSubmit((data)=> handleLogin(data))}>
-               <Input pattern="[a-zA-Z]+" onChange= {(e) => setValue('username',e.target.value)}/> 
+               <Input onChange= {(e) => setValue('username',e.target.value)}/> 
                <Input onChange= {(e) => setValue('password',e.target.value)} type="password"/> 
                <Button htmlType="submit">
                    INICIAR SESION

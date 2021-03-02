@@ -1,0 +1,12 @@
+.molecula-contacto {
+    display: flex;
+    flex-direction: column;
+    border: solid 1px #efefef;
+    padding: 5px 15px;
+    width: calc(25% - 20px);
+}
+.molecula-contacto > div {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}

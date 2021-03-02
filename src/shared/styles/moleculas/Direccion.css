@@ -1,0 +1,22 @@
+.molecula-direccion {
+    display: flex;
+    width: calc(33.3% - 20px);
+    border: solid 1px #efefef;
+    flex-direction: column;
+    padding: 15px 10px;
+    border-radius: 2px;
+}
+.molecula-direccion > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: black;
+}
+.molecula-direccion > div > i{
+    color: red;
+    width: 25px;
+    text-align: center;
+}
+.molecula-direccion > a {
+    align-self: center;
+}

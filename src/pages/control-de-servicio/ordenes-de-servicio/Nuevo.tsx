@@ -1,10 +1,7 @@
 import React from "react";
 import { Card, Steps } from "antd";
-// import Formularios from "../../../static/data/Formularios";
 import Formulario from "../../../shared/components/global/Formulario";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import { useFormularios } from "../../../App/hooks/global/FormulariosContext";
+import BuscadorPersonas from "../../../shared/components/molecula/BuscadorPersonas";
 const steps = [
   { title: "Remitente" },
   { title: "Destinatario" },
@@ -17,24 +14,18 @@ interface contentProps {
   setCurrent: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const BtnSgt = () => {
-  return <div className="btn-siguiente"><span>Siguiente</span><FontAwesomeIcon icon = {faAngleRight} /></div>
-}
-
 const Content = ({ current, setCurrent }: contentProps): JSX.Element => {
-  const { FormularioStore } = useFormularios()
   switch (current) {
     case 0:
       return (
         <div className="content-step">
           <Formulario
-            title="Datos del remitente"
-            inputs={FormularioStore ? FormularioStore.OrdenForms.Remitente : []}
-            submitAction={(data: any) => {
-              console.log(data);
+            descripcions={<BuscadorPersonas />}
+            inputs={[]}
+            submitLabel="Siguiente"
+            submitAction={() => {
               setCurrent(1);
             }}
-            submitLabel={<BtnSgt/>}
           />
         </div>
       );
@@ -42,40 +33,45 @@ const Content = ({ current, setCurrent }: contentProps): JSX.Element => {
       return (
         <div className="content-step">
           <Formulario
-            title="Datos del destinatario"
-            inputs={FormularioStore ? FormularioStore.OrdenForms.Destinatario : []}
-            submitAction={(data: any) => {
-              console.log(data);
+            descripcions={<BuscadorPersonas />}
+            inputs={[]}
+            submitLabel="Siguiente"
+            submitAction={() => {
               setCurrent(2);
             }}
-            submitLabel={<BtnSgt/>}
           />
         </div>
       );
     case 2:
-      return <div className="content-step">
-        <Formulario
-          title="Orden de servicio"
-          inputs={FormularioStore ? FormularioStore.OrdenForms.OrdenServicio : []}
-          submitAction={(data: any) => {
-            console.log(data);
-            setCurrent(3);
-          }}
-          submitLabel="Siguiente"
-        />
-      </div>;
+      return (
+        <div className="content-step">
+          <Formulario
+            inputs={[
+              { name: "Detalle_del_paquete", type: "input" },
+              {
+                name: "Peso_del_paquete",
+                type: "input",
+                customProps: { type: "number" },
+              },
+              {
+                name:"modalidad_pago",
+                type:"dropdown-prime",
+                optionsDropdown:["PAGO EFECTIVO"]
+              },
+              {
+                name:"Mensajero",
+                type:"dropdown-prime",
+              }
+            ]}
+            submitLabel="Siguiente"
+            submitAction={() => {
+              setCurrent(2);
+            }}
+          />
+        </div>
+      );
     case 3:
-      return <div className="content-step">
-        <Formulario
-          title="Datos del remitente"
-          inputs={FormularioStore ? FormularioStore.OrdenForms.OrdenServicio : []}
-          submitAction={(data: any) => {
-            console.log(data);
-            setCurrent(3);
-          }}
-          submitLabel="Finalizar"
-        />
-      </div>;
+      return <div className="content-step"></div>;
     default:
       return <></>;
   }

@@ -1,0 +1,52 @@
+.page-persona {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.page-persona__datos-personales {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 0;
+}
+.page-persona__datos-personales-textos {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.page-persona__datos-personales-textos > div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.page-persona__datos-personales-textos > div > i,
+.page-persona__nombre-edad,
+.page-personas__direcciones-title{
+    color: #3700ff;
+}
+.page-persona__datos-personales-textos > div > strong {
+    color: black;
+}
+.page-persona__nombre-edad{
+    border-bottom: solid 4px var(--secondary);
+}
+.page-persona__nombre-edad {
+    width: 28%;
+}
+.page-persona__datos-personales-textos > div > i{
+    width: 20px;
+    color: #3700ff;
+}
+.page-persona__datos-personales-textos > div > strong{
+    min-width: 180px;
+    font-weight: 600;
+}
+.page-persona__datos-personales-textos > div > span{
+    font-weight: 500;
+    color: black;
+    font-size: 15px;
+}
