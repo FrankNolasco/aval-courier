@@ -11,10 +11,11 @@ interface Props {
 const ListaContactos = ({numero_documento}: Props) => {
     const ListaContactos = useAxios('POST','/api/personas/contacto/listar',true)
     useEffect(() => {
-        const params = {numero_documento : numero_documento}
+        const params = { numero_documento }
         ListaContactos.actualizarParametros(params)
         ListaContactos.iniciarPeticion()
         return () => {}
+    //eslint-disable-next-line
       }, [])
     return (
         <DividerRowWrapper>

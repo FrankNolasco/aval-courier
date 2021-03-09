@@ -6,8 +6,8 @@ import { useUsuario } from "./global/UsuarioContext";
 
 function useAxios(METHOD : "POST" | "GET", url : string , noEjectuarAlInicio : boolean = false ,parametros? : any) {
   const { usuario , token} = useUsuario();
-  const [respuestaServer, setRespuestaServer] = useState<number>()
-  const [datos, setDatos] = useState([]);
+  const [respuestaServer, setRespuestaServer] = useState<number>(0)
+  const [datos, setDatos] = useState<any[]>([]);
   const [error, setError] = useState(null);
   const [cargando, setCargando] = useState(false);
   const resetearConsulta = () =>{

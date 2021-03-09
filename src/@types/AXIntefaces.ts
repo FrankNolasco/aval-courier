@@ -1,3 +1,14 @@
+export interface IHookAxios {
+    datos: any[];
+    cargando: boolean;
+    error: any;
+    setDatos: Function;
+    actualizarParametros: Function;
+    iniciarPeticion: Function;
+    actualizarUrl: Function;
+    resetearConsulta: Function;
+    respuestaServer: null | number;
+}
 export interface IAXPersona {
     Foto? : string,
     Genero : "M" | "F",
@@ -8,6 +19,10 @@ export interface IAXPersona {
     nombre_distrito : string,
     numero_documento : string,
     RUC? : string
+}
+
+export interface IHABuscadorPersona extends IHookAxios {
+    datos : IAXPersona[]
 }
 export interface IAXDireccion {
     Id_Direccion : number,

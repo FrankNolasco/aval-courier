@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Formulario from '../../../shared/components/global/Formulario'
 import BuscadorPersonas from '../../../shared/components/molecula/BuscadorPersonas'
 
@@ -7,11 +7,12 @@ interface Props {
 }
 
 const NuevaIncidencia = (props: Props) => {
+    const [persona, setPersona] = useState()
     return (
         <div>
             <Formulario
             descripcions = {<div>
-                <BuscadorPersonas/>
+                <BuscadorPersonas Persona={persona} setPersona={setPersona}/>
                 <h3 style={{margin:"15px 0"}}>Informacion de la incidencia</h3>
                 </div>}
             inputs={[

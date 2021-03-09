@@ -1,12 +1,12 @@
-import { Button, Card, Cascader, Input, Select, Switch } from "antd";
+import { Button, Card, Input, Select, Switch } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Calendar } from "primereact/calendar";
 import { Dropdown } from "primereact/dropdown";
 import { Toast } from "primereact/toast";
-import { CascadeSelect } from "primereact/cascadeselect";
 import FormField from "../atom/FormField";
 import CascaderForm from "../atom/CascaderForm";
+import { useHistory } from "react-router";
 const dateFormat = "dd/mm/yy";
 export interface IInputPayload {
   name: string;
@@ -37,6 +37,8 @@ interface FormularioProps {
   descripcions?: JSX.Element;
   extra?: JSX.Element;
   elementType?: "row" | "column";
+  onCancel? : Function;
+  loading? : boolean
 }
 interface formControlProps {
   control: IInputPayload;
@@ -162,10 +164,12 @@ function Formulario({
   descripcions,
   extra,
   elementType = "row",
+  onCancel,
+  loading = false
 }: FormularioProps) {
   const { register, handleSubmit, setValue } = useForm();
   const t = useRef<any>(null);
-
+  const { goBack } = useHistory()
   const onSubmit = (data: any) => submitAction(data);
 
   useEffect(() => {
@@ -213,10 +217,12 @@ function Formulario({
         </div>
         {extra ? extra : <></>}
         <div className="form-footer">
-          <Button htmlType="button" type="text" className="form-button">
+          <Button htmlType="button" type="text" className="form-button" onClick={()=> {
+            typeof onCancel === "function" ? onCancel() : goBack()
+          }}>
             Cancelar
           </Button>
-          <Button htmlType="submit" type="primary" className="form-button">
+          <Button htmlType={loading ? "button" : "submit"} type="primary" className="form-button" loading={loading}>
             {submitLabel}
           </Button>
         </div>

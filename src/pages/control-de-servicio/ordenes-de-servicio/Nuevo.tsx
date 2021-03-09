@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Steps } from "antd";
 import Formulario from "../../../shared/components/global/Formulario";
 import BuscadorPersonas from "../../../shared/components/molecula/BuscadorPersonas";
+import ListaDirecciones from "../../../shared/components/molecula/ListaDirecciones";
 const steps = [
   { title: "Remitente" },
   { title: "Destinatario" },
@@ -15,12 +16,17 @@ interface contentProps {
 }
 
 const Content = ({ current, setCurrent }: contentProps): JSX.Element => {
+  const [Destinatario, setDestinatario] = useState()
+  const [Remitente, setRemitente] = useState<any>()
   switch (current) {
     case 0:
       return (
         <div className="content-step">
           <Formulario
-            descripcions={<BuscadorPersonas />}
+            descripcions={<div>
+                <BuscadorPersonas Persona={Remitente} setPersona={setRemitente}/>
+                <ListaDirecciones numero_documento={Remitente ? Remitente.numero_documento : ""}/>
+              </div>}
             inputs={[]}
             submitLabel="Siguiente"
             submitAction={() => {
@@ -33,7 +39,7 @@ const Content = ({ current, setCurrent }: contentProps): JSX.Element => {
       return (
         <div className="content-step">
           <Formulario
-            descripcions={<BuscadorPersonas />}
+            descripcions={<BuscadorPersonas Persona={Destinatario} setPersona={setDestinatario}/>}
             inputs={[]}
             submitLabel="Siguiente"
             submitAction={() => {

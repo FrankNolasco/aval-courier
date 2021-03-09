@@ -19,6 +19,7 @@ const ListaDirecciones = ({numero_documento}: Props) => {
     ListaDirecciones.actualizarParametros(params);
     ListaDirecciones.iniciarPeticion();
     return () => {};
+  //eslint-disable-next-line
   }, []);
   return (
     <DividerRowWrapper>

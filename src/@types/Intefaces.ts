@@ -8,3 +8,8 @@ export interface MenuProps {
         title : string
     }[]
 }
+export interface IReducerNotifyStore {
+    severity: "info" | "success" | "error" | "warn";
+    summary: JSX.Element | string;
+    detail: JSX.Element | string;
+  }
