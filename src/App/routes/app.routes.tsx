@@ -11,7 +11,11 @@ import NuevoMensajero from '../../pages/control-de-personal/RegistroContribuidor
 import RegistroMensajeros from '../../pages/control-de-personal/RegistroMensajeros'
 import NuevoOrdenServicio from '../../pages/control-de-servicio/ordenes-de-servicio/Nuevo'
 import OrdenesServicio from '../../pages/control-de-servicio/OrdenesServicio'
+import NuevoPuestoTrabajo from '../../pages/control-de-usuarios/registro-de-puestos-trabajo/Nuevo'
+import NuevoTurno from '../../pages/control-de-usuarios/registro-de-turnos/Nuevo'
 import NuevoUsuario from '../../pages/control-de-usuarios/registro-de-usuarios/Nuevo'
+import RegistroPuestosTrabajo from '../../pages/control-de-usuarios/RegistroPuestosTrabajo'
+import RegistroTurnos from '../../pages/control-de-usuarios/RegistroTurnos'
 import RegistroUsuarios from '../../pages/control-de-usuarios/RegistroUsuarios'
 import Index from '../../pages/Index'
 import Login from '../../pages/Login'
@@ -47,6 +51,18 @@ const Routes = () => {
         </Route>
         <Route path = "/control-de-personal/registro-de-mensajeros/nuevo" exact>
             <NuevoMensajero/>
+        </Route>
+        <Route path="/control-de-personal/puestos-de-trabajo" exact>
+            <RegistroPuestosTrabajo/>
+        </Route>
+        <Route path="/control-de-personal/puestos-de-trabajo/nuevo" exact>
+            <NuevoPuestoTrabajo/>
+        </Route>
+        <Route path="/control-de-personal/registro-de-turnos" exact>
+            <RegistroTurnos/>
+        </Route>
+        <Route path="/control-de-personal/registro-de-turnos/nuevo" exact>
+            <NuevoTurno/>
         </Route>
         <Route path = "/control-de-personal/base-personas" exact>
             <BasePersonas/>

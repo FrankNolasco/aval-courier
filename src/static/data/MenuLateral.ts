@@ -26,8 +26,13 @@ export const MenuLateralMap : MenuProps[] = [
             },
             {
                 key : "201",
-                link : "/control-de-personal/registro-de-mensajeros",
-                title : "Registro de mensajeros",
+                link : "/control-de-personal/puestos-de-trabajo",
+                title : "Registro de puestos de trabajo",
+            },
+            {
+                key : "202",
+                link : "/control-de-personal/registro-de-turnos",
+                title : "Registro de turnos",
             },
             {
                 key : "202",
@@ -58,6 +63,11 @@ export const MenuLateralMap : MenuProps[] = [
                 key : "400",
                 link : "/control-de-usuarios/registro-de-usuarios",
                 title : "Registro de usuarios",
+            },
+            {
+                key : "401",
+                link : "/control-de-usuarios/registro-de-roles",
+                title : "Registro de roles",
             }
 
         ]

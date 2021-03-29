@@ -10,22 +10,22 @@ function PlantillaData({children, LinkBtn,title}: Props): ReactElement {
     const { push } = useHistory();
 
     return (
-        <div className="container">
-      <Card
-        title={title}
-        extra={
-          <Button type="primary"
-            onClick={() =>
-              push(LinkBtn)
-            }
-            style={{display:"flex",gap:5, alignItems:"center"}}
-          >
-            <i className="fa fa-plus"></i> <span>Nuevo</span>
-          </Button>
-        }
-      >
-        {children}
-      </Card>
+      <div className="container">
+        <Card
+          title={title}
+          extra={
+            <Button type="primary"
+              onClick={() =>
+                push(LinkBtn)
+              }
+              style={{display:"flex",gap:5, alignItems:"center"}}
+            >
+              <i className="fa fa-plus"></i> <span>Nuevo</span>
+            </Button>
+          }
+        >
+          {children}
+        </Card>
     </div>
     )
 }
