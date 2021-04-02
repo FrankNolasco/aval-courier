@@ -84,7 +84,15 @@ const Routes = () => {
         </Route>
         <Route path = "/control-de-usuarios/registro-de-usuarios/nuevo" exact>
             <NuevoUsuario/>
+        </Route>
+        <Route path = "/control-de-usuarios/registro-de-roles" exact>
+            <RegistroTurnos/>
+        </Route>
+        <Route path = "/control-de-usuarios/registro-de-roles/nuevo" exact>
+            <NuevoTurno/>
         </Route> 
+         
+
     </Fragment>)
 }
 
