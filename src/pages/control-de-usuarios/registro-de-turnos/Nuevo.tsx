@@ -7,8 +7,9 @@ interface Props {
 
 const NuevoTurno = (props: Props) => {
     return (
-        <Formulario title="Nuevo puesto de trabajo" inputs={[{name:"turno",type:"input",required:true}]} submitAction={(data : any) => console.log(data)}/>
+        <Formulario title="Nuevo puesto de trabajo" inputs={[{name:"turno",type:"input",required:true}, {name:"distrito",type:"input",required:true}]} submitAction={(data : any) => console.log(data)}/>
     )
 }
+
 
 export default NuevoTurno
