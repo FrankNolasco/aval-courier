@@ -31,7 +31,8 @@ const LateralBar = () => {
         mode="inline"
       >
       {
-        (usuario ? MenuLateralMap : UnloggedMenu).map((menu : MenuProps) => <SubMenu key={menu.key}title={<TitleSubMenu icon={menu.icono} title={menu.title}/>}>
+        // (usuario ? MenuLateralMap : UnloggedMenu).map((menu : MenuProps) => <SubMenu key={menu.key}title={<TitleSubMenu icon={menu.icono} title={menu.title}/>}>
+        MenuLateralMap.map((menu : MenuProps) => <SubMenu key={menu.key}title={<TitleSubMenu icon={menu.icono} title={menu.title}/>}>
           {
             menu.submenus.map
             (sm => <Menu.Item key={sm.key}>
