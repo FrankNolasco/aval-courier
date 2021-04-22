@@ -1,4 +1,4 @@
-import { Button, Card, Input, Select, Switch } from "antd";
+import { Button, Card, Input, Switch } from "antd";
 import React, { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Calendar } from "primereact/calendar";
@@ -27,6 +27,7 @@ export interface IInputPayload {
   setValue?: Function;
   required?: boolean;
   dropdownDependecyName?: string;
+  defaultValue?:any
 }
 interface FormularioProps {
   inputs: IInputPayload[];
@@ -38,7 +39,7 @@ interface FormularioProps {
   extra?: JSX.Element;
   elementType?: "row" | "column";
   onCancel? : Function;
-  loading? : boolean
+  loading? : boolean;
 }
 interface formControlProps {
   control: IInputPayload;
@@ -55,12 +56,12 @@ export const procesarLabel = (label: string, isSwitch: boolean) => {
   return `${isSwitch ? "¿" : ""}${str}${isSwitch ? "?" : ""} :`;
 };
 const FormControl = ({ control, setValue, getValue }: formControlProps) => {
-  const { Option } = Select;
-  const [dropdownValue, setDropdownValue] = useState<any>({});
+  const [dropdownValue, setDropdownValue] = useState<any>(control.defaultValue);
   switch (control.type) {
     case "input":
       return (
         <Input
+          defaultValue = {control.defaultValue}
           onChange={(e) => {
             setValue(control.name, e.target.value);
           }}
@@ -68,19 +69,7 @@ const FormControl = ({ control, setValue, getValue }: formControlProps) => {
         />
       );
     case "dropdown":
-      return (
-        <Select
-          className="select-options"
-          onChange={(value) => setValue(control.name, value)}
-          {...control.customProps}
-        >
-          {control.optionsDropdown?.map((option, idx) => (
-            <Option value={option[control.optionValue!]} key={idx}>
-              {option[control.optionLabel!]}
-            </Option>
-          ))}
-        </Select>
-      );
+      return (<div></div>);
     case "dropdown-prime":
       return (
         <Dropdown
@@ -113,6 +102,7 @@ const FormControl = ({ control, setValue, getValue }: formControlProps) => {
           onChange={(e) => {
             setValue(control.name, e.target.value);
           }}
+          defaultValue={control.defaultValue}
           required={
             typeof control.required === "undefined" ? false : control.required
           }
@@ -131,6 +121,7 @@ const FormControl = ({ control, setValue, getValue }: formControlProps) => {
       return (
         <div className="w-100">
           <Switch
+            defaultChecked={control.defaultValue}          
             checkedChildren="SI"
             unCheckedChildren="NO"
             onChange={(checked) => {
@@ -165,7 +156,7 @@ function Formulario({
   extra,
   elementType = "row",
   onCancel,
-  loading = false
+  loading = false,
 }: FormularioProps) {
   const { register, handleSubmit, setValue } = useForm();
   const t = useRef<any>(null);

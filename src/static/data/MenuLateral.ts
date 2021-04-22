@@ -35,7 +35,7 @@ export const MenuLateralMap : MenuProps[] = [
                 title : "Registro de turnos",
             },
             {
-                key : "202",
+                key : "203",
                 link : "/control-de-personal/base-personas",
                 title : "Base de datos de personas",
             }
